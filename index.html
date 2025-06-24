@@ -12,47 +12,57 @@
       --crema: #f4f1ec;
       --oscuro: #333;
       --dorado: #bfa76f;
+      --blanco: #fff;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
     }
 
     body {
-      margin: 0;
       font-family: 'Segoe UI', sans-serif;
       background-color: var(--crema);
       color: var(--oscuro);
-      animation: fadeIn 1.2s ease-in;
+      overflow-x: hidden;
+      animation: fadeIn 1s ease-out;
     }
 
     @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
+      0% { opacity: 0; transform: translateY(30px); }
+      100% { opacity: 1; transform: translateY(0); }
     }
 
     header {
       background-color: var(--verde-principal);
-      color: white;
+      color: var(--blanco);
       padding: 20px;
       display: flex;
       justify-content: space-between;
       align-items: center;
       flex-wrap: wrap;
-      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+      animation: slideDown 1s ease-out;
+    }
+
+    @keyframes slideDown {
+      0% { transform: translateY(-100%); }
+      100% { transform: translateY(0); }
     }
 
     .logo {
       height: 60px;
-      transition: transform 0.3s;
+      transition: transform 0.4s ease;
     }
 
     .logo:hover {
-      transform: scale(1.05);
+      transform: rotate(-2deg) scale(1.1);
     }
 
     nav ul {
       list-style: none;
       display: flex;
       gap: 20px;
-      padding: 0;
-      margin: 0;
     }
 
     nav a {
@@ -60,7 +70,7 @@
       text-decoration: none;
       font-weight: bold;
       position: relative;
-      transition: color 0.3s;
+      transition: all 0.3s ease;
     }
 
     nav a::after {
@@ -70,7 +80,7 @@
       height: 2px;
       bottom: -4px;
       left: 0;
-      background-color: white;
+      background-color: var(--dorado);
       transition: width 0.3s ease-in-out;
     }
 
@@ -85,19 +95,21 @@
     .seccion {
       padding: 60px 20px;
       text-align: center;
-      animation: fadeIn 1.2s ease-in;
+      animation: fadeIn 1s ease;
     }
 
     .inicio img, .nosotros img {
       max-width: 90%;
       border-radius: 15px;
       margin-top: 20px;
-      box-shadow: 0 6px 15px rgba(0,0,0,0.1);
-      transition: transform 0.4s ease;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+      animation: popIn 0.8s ease forwards;
+      transform: scale(0.95);
     }
 
-    .inicio img:hover, .nosotros img:hover {
-      transform: scale(1.02);
+    @keyframes popIn {
+      from { transform: scale(0.8); opacity: 0; }
+      to { transform: scale(1); opacity: 1; }
     }
 
     .tienda .productos {
@@ -110,26 +122,31 @@
 
     .producto {
       background-color: white;
-      border-radius: 10px;
+      border-radius: 15px;
       padding: 20px;
-      width: 250px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      width: 260px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      transition: transform 0.4s, box-shadow 0.4s;
     }
 
     .producto:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+      transform: translateY(-8px) scale(1.02);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
     }
 
     .producto img {
       width: 100%;
       border-radius: 10px;
-      transition: transform 0.3s ease;
+      margin-bottom: 10px;
     }
 
     .producto h3 {
       color: var(--verde-principal);
+    }
+
+    .producto p {
+      font-size: 0.9em;
+      margin: 10px 0;
     }
 
     .producto a {
@@ -141,7 +158,7 @@
       text-decoration: none;
       border-radius: 5px;
       font-weight: bold;
-      transition: background-color 0.3s ease, transform 0.3s ease;
+      transition: background-color 0.3s, transform 0.3s;
     }
 
     .producto a:hover {
@@ -158,7 +175,7 @@
       text-decoration: none;
       font-size: 1.1em;
       margin-top: 20px;
-      transition: background-color 0.3s ease, transform 0.3s ease;
+      transition: background-color 0.3s, transform 0.3s;
     }
 
     .boton-contacto:hover {
@@ -172,22 +189,33 @@
       text-align: center;
       padding: 20px;
       margin-top: 40px;
+      animation: fadeIn 1s ease-in;
     }
 
-    @media (max-width: 600px) {
+    @media (max-width: 768px) {
       nav ul {
         flex-direction: column;
         align-items: center;
+        gap: 10px;
+        margin-top: 15px;
       }
 
       .producto {
         width: 90%;
       }
+
+      header {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .logo {
+        margin-bottom: 10px;
+      }
     }
   </style>
 </head>
 <body>
-
   <!-- Encabezado -->
   <header>
     <img src="img/logo.png" alt="Logo Gaia Vitalis" class="logo" />
