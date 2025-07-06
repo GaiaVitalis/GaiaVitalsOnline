@@ -14,26 +14,17 @@
       --dorado: #bfa76f;
       --blanco: #fff;
     }
-
     * {
       box-sizing: border-box;
       margin: 0;
       padding: 0;
     }
-
     body {
       font-family: 'Segoe UI', sans-serif;
       background-color: var(--crema);
       color: var(--oscuro);
       overflow-x: hidden;
-      animation: fadeIn 1s ease-out;
     }
-
-    @keyframes fadeIn {
-      0% { opacity: 0; transform: translateY(30px); }
-      100% { opacity: 1; transform: translateY(0); }
-    }
-
     header {
       background-color: var(--verde-principal);
       color: var(--blanco);
@@ -42,76 +33,19 @@
       justify-content: space-between;
       align-items: center;
       flex-wrap: wrap;
-      animation: slideDown 1s ease-out;
     }
-
-    @keyframes slideDown {
-      0% { transform: translateY(-100%); }
-      100% { transform: translateY(0); }
-    }
-
-    .logo {
-      height: 60px;
-      transition: transform 0.4s ease;
-    }
-
-    .logo:hover {
-      transform: rotate(-2deg) scale(1.1);
-    }
-
+    .logo { height: 60px; }
     nav ul {
       list-style: none;
       display: flex;
       gap: 20px;
     }
-
     nav a {
       color: white;
       text-decoration: none;
       font-weight: bold;
-      position: relative;
-      transition: all 0.3s ease;
     }
-
-    nav a::after {
-      content: "";
-      position: absolute;
-      width: 0;
-      height: 2px;
-      bottom: -4px;
-      left: 0;
-      background-color: var(--dorado);
-      transition: width 0.3s ease-in-out;
-    }
-
-    nav a:hover {
-      color: var(--dorado);
-    }
-
-    nav a:hover::after {
-      width: 100%;
-    }
-
-    .seccion {
-      padding: 60px 20px;
-      text-align: center;
-      animation: fadeIn 1s ease;
-    }
-
-    .inicio img, .nosotros img {
-      max-width: 90%;
-      border-radius: 15px;
-      margin-top: 20px;
-      box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-      animation: popIn 0.8s ease forwards;
-      transform: scale(0.95);
-    }
-
-    @keyframes popIn {
-      from { transform: scale(0.8); opacity: 0; }
-      to { transform: scale(1); opacity: 1; }
-    }
-
+    .seccion { padding: 60px 20px; text-align: center; }
     .tienda .productos {
       display: flex;
       flex-wrap: wrap;
@@ -119,7 +53,6 @@
       gap: 30px;
       margin-top: 30px;
     }
-
     .producto {
       background-color: white;
       border-radius: 15px;
@@ -128,141 +61,50 @@
       box-shadow: 0 4px 12px rgba(0,0,0,0.1);
       transition: transform 0.4s, box-shadow 0.4s;
     }
-
     .producto:hover {
       transform: translateY(-8px) scale(1.02);
       box-shadow: 0 8px 20px rgba(0,0,0,0.15);
     }
-
-    .producto img {
-      width: 100%;
-      border-radius: 10px;
-      margin-bottom: 10px;
-    }
-
-    .producto h3 {
-      color: var(--verde-principal);
-    }
-
-    .producto p {
-      font-size: 0.9em;
-      margin: 10px 0;
-    }
-
-    .producto a {
+    .producto img { width: 100%; border-radius: 10px; margin-bottom: 10px; }
+    .producto h3 { color: var(--verde-principal); }
+    .producto p { font-size: 0.9em; margin: 10px 0; }
+    .producto button {
       display: inline-block;
       margin-top: 10px;
       padding: 10px 15px;
       background-color: var(--verde-claro);
       color: var(--oscuro);
-      text-decoration: none;
+      border: none;
       border-radius: 5px;
       font-weight: bold;
-      transition: background-color 0.3s, transform 0.3s;
+      cursor: pointer;
     }
-
-    .producto a:hover {
+    .producto button:hover {
       background-color: var(--dorado);
       transform: scale(1.05);
     }
-
-    .boton-contacto {
-      display: inline-block;
-      padding: 15px 25px;
-      background-color: var(--verde-principal);
-      color: white;
-      border-radius: 8px;
-      text-decoration: none;
-      font-size: 1.1em;
-      margin-top: 20px;
-      transition: background-color 0.3s, transform 0.3s;
-    }
-
-    .boton-contacto:hover {
-      background-color: var(--dorado);
-      transform: scale(1.05);
-    }
-
     footer {
       background-color: var(--verde-principal);
       color: white;
       text-align: center;
       padding: 20px;
       margin-top: 40px;
-      animation: fadeIn 1s ease-in;
     }
-
-    @media (max-width: 768px) {
-      nav ul {
-        flex-direction: column;
-        align-items: center;
-        gap: 10px;
-        margin-top: 15px;
-      }
-
-      .producto {
-        width: 90%;
-      }
-
-      header {
-        flex-direction: column;
-        align-items: center;
-      }
-
-      .logo {
-        margin-bottom: 10px;
-      }
+    #carrito {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: var(--blanco);
+      border: 2px solid var(--verde-principal);
+      border-radius: 10px;
+      padding: 15px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+      max-width: 250px;
+      z-index: 1000;
     }
-   #videoFondo {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    z-index: -1;
-    opacity: 0.35; /* Aumentado para mayor visibilidad */
-  }
-
-  .tienda {
-    position: relative;
-    z-index: 1;
-    background-color: rgba(255, 255, 255, 0.5); /* más transparente */
-    backdrop-filter: blur(2px);
-    padding: 60px 20px;
-    border-radius: 12px;
-    margin: 40px auto;
-  }
-
-  .producto {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    background-color: rgba(255, 255, 255, 0.75); /* más transparente */
-    border-radius: 15px;
-    padding: 20px;
-    width: 270px;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s, box-shadow 0.3s;
-    backdrop-filter: blur(3px);
-    position: relative;
-    min-height: 500px;
-  }
-
-  .producto a {
-    margin-top: auto;
-    align-self: center;
-  }
-
-</style>
+  </style>
 </head>
 <body>
-  <!-- Fondo de video para la sección tienda -->
-<video autoplay muted loop id="videoFondo">
-  <source src="video/hojas.mp4" type="video/mp4">
-  Tu navegador no soporta videos HTML5.
-</video>
-  <!-- Encabezado -->
   <header>
     <img src="img/logo.png" alt="Logo Gaia Vitalis" class="logo" />
     <nav>
@@ -275,340 +117,421 @@
     </nav>
   </header>
 
-  <!-- Sección Inicio -->
   <section id="inicio" class="seccion inicio">
     <h1>Bienvenidos a Gaia Vitalis</h1>
     <p>Conecta con lo natural. Productos orgánicos para tu bienestar.</p>
-    <img src="img/hero.jpg" alt="Imagen natural principal" />
   </section>
 
-  <!-- Sección Tienda -->
   <section id="productos" class="seccion tienda">
     <h2>Nuestra Tienda</h2>
     <div class="productos">
-      <div class="producto">
+
+<!-- Producto 1 -->
+<div class="producto">
   <img src="img/producto1.jpg" alt="Producto 1">
   <h3>Chupa Panza</h3>
-<p>🔴 REDUCE LA GRASA CORPORAL<br>
-🔴 FAVORECE LA SENSACIÓN DE SACIEDAD<br>
-🔴 DISMINUYE EL APETITO<br>
-🔴 ACELERA EL METABOLISMO<br>
-🔴 FAVORECE LA QUEMA DE CALORÍAS<br>
-🔴 DEPURA LAS TOXINAS DEL ORGANISMO<br>
-🔴 REGULA LOS NIVELES DE COLESTEROL Y TRIGLICÉRIDOS<br>
-🔴 POSEE ACCIÓN ANTIOXIDANTE</p>
+  <p>🔴 REDUCE LA GRASA CORPORAL<br>🔴 FAVORECE LA SACIEDAD</p>
   <span>$19.99</span>
-  <a href="https://wa.me/5930987512412?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20el%20Producto%20Chupa%20Panza" target="_blank">Comprar por WhatsApp</a>
+  <button onclick="añadirAlCarrito('Chupa Panza', 19.99)">Añadir al carrito</button>
 </div>
+
+<!-- Producto 2 -->
 <div class="producto">
   <img src="img/producto2.jpg" alt="Producto 2">
   <h3>Colageno + Celulas Madre</h3>
- <p>🔴 REGENERA TEJIDOS DAÑADOS<br>
-🔴 MEJORA LA ELASTICIDAD DE LA PIEL<br>
-🔴 REDUCE ARRUGAS Y SIGNOS DE EDAD<br>
-🔴 PROMUEVE LA HIDRATACIÓN NATURAL<br>
-🔴 FORTALECE UÑAS Y CABELLO<br>
-🔴 FAVORECE LA SALUD DE ARTICULACIONES<br>
-🔴 APORTA ACCIÓN ANTIINFLAMATORIA<br>
-🔴 REFUERZA EL SISTEMA INMUNOLÓGICO</p>
+  <p>🔴 REGENERA TEJIDOS DAÑADOS<br>🔴 MEJORA ELASTICIDAD</p>
   <span>$19.99</span>
-  <a href="https://wa.me/5930987512412?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20el%20Colageno" target="_blank">Comprar por WhatsApp</a>
+  <button onclick="añadirAlCarrito('Colageno + Celulas Madre', 19.99)">Añadir al carrito</button>
 </div>
+
+<!-- Producto 3 -->
 <div class="producto">
   <img src="img/producto3.jpg" alt="Producto 3">
-  <h3>Aguaje Plus</h3>
-  <p>🔴 RICO EN VITAMINAS A, C Y E<br>
-🔴 MEJORA LA SALUD Y APARIENCIA DE LA PIEL<br>
-🔴 EQUILIBRA LOS NIVELES HORMONALES EN MUJERES<br>
-🔴 AUMENTA LA ENERGÍA Y VITALIDAD<br>
-🔴 FORTALECE EL SISTEMA INMUNOLÓGICO<br>
-🔴 POSEE PODEROSA ACCIÓN ANTIOXIDANTE</p>
+  <h3>Metabolic</h3>
+  <p>🔴 QUEMA GRASA CORPORAL<br>🔴 SUBE MASA MUSCULAR</p>
   <span>$19.99</span>
-  <a href="https://wa.me/5930987512412?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20el%20Producto%20Aguaje%20Plus" target="_blank">Comprar por WhatsApp</a>
+  <button onclick="añadirAlCarrito('Metabolic', 19.99)">Añadir al carrito</button>
 </div>
-        <div class="producto">
-    <img src="img/producto4.jpg" alt="Vitamina C">
-    <h3>Vitamina C</h3>
-    <p>🔴 POTENTE ANTIOXIDANTE<br>
-    🔴 FORTALECE EL SISTEMA INMUNE<br>
-    🔴 MEJORA LA ABSORCIÓN DE HIERRO<br>
-    🔴 PROMUEVE LA PRODUCCIÓN DE COLÁGENO</p>
-    <span>$19.99</span>
-    <a href="https://wa.me/5930987512412?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20la%20Vitamina%20C" target="_blank">Comprar por WhatsApp</a>
-  </div>
 
-  <!-- Producto 5 -->
-  <div class="producto">
-    <img src="img/producto5.jpg" alt="Vitamina E">
-    <h3>Vitamina E</h3>
-    <p>🔴 PROTEGE LAS CÉLULAS DEL DAÑO OXIDATIVO<br>
-    🔴 MEJORA LA SALUD DE LA PIEL<br>
-    🔴 APOYA EL SISTEMA CARDIOVASCULAR</p>
-    <span>$19.99</span>
-    <a href="https://wa.me/5930987512412?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20la%20Vitamina%20E" target="_blank">Comprar por WhatsApp</a>
-  </div>
-
-  <!-- Producto 6 -->
-  <div class="producto">
-    <img src="img/producto6.jpg" alt="Coca Cápsulas">
-    <h3>Coca Cápsulas</h3>
-    <p>🔴 ESTIMULANTE NATURAL<br>
-    🔴 REDUCE LA FATIGA<br>
-    🔴 MEJORA ENERGÍA Y OXIGENACIÓN</p>
-    <span>$19.99</span>
-    <a href="https://wa.me/5930987512412?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20Coca%20C%C3%A1psulas" target="_blank">Comprar por WhatsApp</a>
-  </div>
-
-  <!-- Producto 7 -->
-  <div class="producto">
-    <img src="img/producto7.jpg" alt="Células Madre + Ácido Hialurónico">
-    <h3>Células Madre + Ácido Hialurónico</h3>
-    <p>🔴 REGENERA TEJIDOS<br>
-    🔴 HIDRATA LA PIEL<br>
-    🔴 MEJORA ELASTICIDAD Y LUMINOSIDAD</p>
-    <span>$19.99</span>
-    <a href="https://wa.me/5930987512412?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20C%C3%A9lulas%20Madre%20y%20%C3%81cido%20Hialur%C3%B3nico" target="_blank">Comprar por WhatsApp</a>
-  </div>
-
-  <!-- Producto 8 -->
-  <div class="producto">
-    <img src="img/producto8.jpg" alt="Cartílago de Tiburón">
-    <h3>Cartílago de Tiburón</h3>
-    <p>🔴 SALUD ARTICULAR<br>
-    🔴 REDUCE INFLAMACIÓN<br>
-    🔴 FAVORECE LA REGENERACIÓN DEL CARTÍLAGO</p>
-    <span>$19.99</span>
-    <a href="https://wa.me/5930987512412?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20el%20Cart%C3%ADlago%20de%20Tibur%C3%B3n" target="_blank">Comprar por WhatsApp</a>
-  </div>
- <!-- Producto 9 -->
-  <div class="producto">
-    <img src="img/producto9.jpg" alt="Regulador Menstrual">
-    <h3>Regulador Menstrual</h3>
-    <p>🔴 EQUILIBRA LOS CICLOS HORMONALES<br>
-    🔴 ALIVIA SÍNTOMAS PREMENSTRUALES<br>
-    🔴 PROMUEVE UN CICLO SALUDABLE</p>
-    <span>$19.99</span>
-    <a href="https://wa.me/5930987512412?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20el%20Regulador%20Menstrual" target="_blank">Comprar por WhatsApp</a>
-  </div>
-
-  <!-- Producto 10 -->
-  <div class="producto">
-    <img src="img/producto10.jpg" alt="Plan 30 Días">
-    <h3>Plan 30 Días</h3>
-    <p>🔴 BIENESTAR INTEGRAL<br>
-    🔴 DESINTOXICACIÓN Y CONTROL DE PESO<br>
-    🔴 AUMENTA LA ENERGÍA SEGÚN SU FORMULACIÓN</p>
-    <span>$19.99</span>
-    <a href="https://wa.me/5930987512412?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20el%20Plan%2030%20D%C3%ADas" target="_blank">Comprar por WhatsApp</a>
-  </div>
-
-  <!-- Producto 11 -->
-  <div class="producto">
-    <img src="img/producto11.jpg" alt="Gastrizan">
-    <h3>Gastrizan</h3>
-    <p>🔴 SALUD DIGESTIVA<br>
-    🔴 ALIVIA MOLESTIAS ESTOMACALES<br>
-    🔴 COMBATE LA ACIDEZ Y MEJORA LA DIGESTIÓN</p>
-    <span>$19.99</span>
-    <a href="https://wa.me/5930987512412?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20Gastrizan" target="_blank">Comprar por WhatsApp</a>
-  </div>
-
-  <!-- Producto 12 -->
-  <div class="producto">
-    <img src="img/producto12.jpg" alt="Cúrcuma">
-    <h3>Cúrcuma</h3>
-    <p>🔴 ANTIINFLAMATORIO NATURAL<br>
-    🔴 ALIVIA DOLORES ARTICULARES<br>
-    🔴 MEJORA LA DIGESTIÓN Y ANTIOXIDANTE</p>
-    <span>$19.99</span>
-    <a href="https://wa.me/5930987512412?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20la%20C%C3%BArcuma" target="_blank">Comprar por WhatsApp</a>
-  </div>
-
-  <!-- Producto 13 -->
-  <div class="producto">
-    <img src="img/producto13.jpg" alt="Té Verde">
-    <h3>Té Verde</h3>
-    <p>🔴 RICO EN ANTIOXIDANTES<br>
-    🔴 AYUDA A PERDER PESO<br>
-    🔴 MEJORA LA CONCENTRACIÓN Y METABOLISMO</p>
-    <span>$19.99</span>
-    <a href="https://wa.me/5930987512412?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20el%20T%C3%A9%20Verde" target="_blank">Comprar por WhatsApp</a>
-  </div>
-
-  <!-- Producto 14 -->
-  <div class="producto">
-    <img src="img/producto14.jpg" alt="L-Carnitina">
-    <h3>L-Carnitina</h3>
-    <p>🔴 FAVORECE LA QUEMA DE GRASA<br>
-    🔴 MEJORA RENDIMIENTO FÍSICO<br>
-    🔴 AYUDA EN LA RECUPERACIÓN MUSCULAR</p>
-    <span>$19.99</span>
-    <a href="https://wa.me/5930987512412?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20la%20L-Carnitina" target="_blank">Comprar por WhatsApp</a>
-  </div>
-
-  <!-- Producto 15 -->
-  <div class="producto">
-    <img src="img/producto15.jpg" alt="Aguaje + Hinojo">
-    <h3>Aguaje + Hinojo</h3>
-    <p>🔴 REGULA EL SISTEMA HORMONAL FEMENINO<br>
-    🔴 MEJORA LA FIGURA Y PIEL<br>
-    🔴 EFECTO DIGESTIVO Y ANTIINFLAMATORIO</p>
-    <span>$19.99</span>
-    <a href="https://wa.me/5930987512412?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20Aguaje%20y%20Hinojo" target="_blank">Comprar por WhatsApp</a>
-  </div>
-
-  <!-- Producto 16 -->
-  <div class="producto">
-    <img src="img/producto16.jpg" alt="Bio Prost">
-    <h3>Bio Prost</h3>
-    <p>🔴 APOYA LA SALUD DE LA PRÓSTATA<br>
-    🔴 MEJORA EL FLUJO URINARIO<br>
-    🔴 REDUCE INFLAMACIÓN PROSTÁTICA</p>
-    <span>$19.99</span>
-    <a href="https://wa.me/5930987512412?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20Bio%20Prost" target="_blank">Comprar por WhatsApp</a>
-  </div>
-
-  <!-- Producto 17 -->
-  <div class="producto">
-    <img src="img/producto17.jpg" alt="Uña de Gato">
-    <h3>Uña de Gato</h3>
-    <p>🔴 REFUERZA EL SISTEMA INMUNE<br>
-    🔴 PROPIEDADES ANTIINFLAMATORIAS<br>
-    🔴 ÚTIL PARA ARTICULACIONES Y DIGESTIÓN</p>
-    <span>$19.99</span>
-    <a href="https://wa.me/5930987512412?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20la%20U%C3%B1a%20de%20Gato" target="_blank">Comprar por WhatsApp</a>
-  </div>
-
-  <!-- Producto 18 -->
-  <div class="producto">
-    <img src="img/producto18.jpg" alt="Mero Macho">
-    <h3>Mero Macho</h3>
-    <p>🔴 VIGORIZANTE MASCULINO<br>
-    🔴 MEJORA RENDIMIENTO SEXUAL<br>
-    🔴 AUMENTA ENERGÍA Y VITALIDAD</p>
-    <span>$19.99</span>
-    <a href="https://wa.me/5930987512412?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20Mero%20Macho" target="_blank">Comprar por WhatsApp</a>
-  </div>
-  <!-- Producto 20 -->
-  <div class="producto">
-    <img src="img/producto20.jpg" alt="Colágeno Hidrolizado + Biotina + Magnesio">
-    <h3>Biotina</h3>
-    <p>🔴 FORTALECE ARTICULACIONES Y HUESOS<br>
-    🔴 MEJORA PIEL, UÑAS Y CABELLO<br>
-    🔴 MANTIENE LA VITALIDAD Y JUVENTUD</p>
-    <span>$19.99</span>
-    <a href="https://wa.me/5930987512412?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20Col%C3%A1geno%20Biotina%20y%20Magnesio" target="_blank">Comprar por WhatsApp</a>
-  </div>
-  <!-- Producto 21 -->
-  <div class="producto">
-    <img src="img/producto21.jpg" alt="Hercampuri">
-    <h3>Hercampuri</h3>
-    <p>🔴 DEPURATIVO NATURAL<br>
-    🔴 APOYA EL HÍGADO Y REDUCE COLESTEROL<br>
-    🔴 FAVORECE LA PÉRDIDA DE PESO</p>
-    <span>$19.99</span>
-    <a href="https://wa.me/5930987512412?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20Hercampuri" target="_blank">Comprar por WhatsApp</a>
-  </div>
-      <!-- Producto 22 -->
+<!-- Producto 4 -->
 <div class="producto">
-  <img src="img/producto22.jpg" alt="Melatonina Medix">
-  <h3>Melatonina Medix</h3>
-  <p>🔴 REGULA EL CICLO DE SUEÑO<br>
-  🔴 COMBATE EL INSOMNIO<br>
-  🔴 IDEAL PARA EL JET LAG<br>
-  🔴 DESCANSO NATURAL Y PROFUNDO</p>
+  <img src="img/producto4.jpg" alt="Producto 4">
+  <h3>Omega 3 6 9</h3>
+  <p>🔴 PROTEGE SISTEMA CARDIOVASCULAR<br>🔴 REDUCE COLESTEROL</p>
   <span>$19.99</span>
-  <a href="https://wa.me/5930987512412?text=Hola%2C%20quiero%20más%20información%20sobre%20Melatonina%20Medix" target="_blank">Comprar por WhatsApp</a>
+  <button onclick="añadirAlCarrito('Omega 3 6 9', 19.99)">Añadir al carrito</button>
+</div>
+
+<!-- Producto 5 -->
+<div class="producto">
+  <img src="img/producto5.jpg" alt="Producto 5">
+  <h3>Power Blue</h3>
+  <p>🔴 AUMENTA EL DESEO SEXUAL<br>🔴 AUMENTA LA POTENCIA</p>
+  <span>$19.99</span>
+  <button onclick="añadirAlCarrito('Power Blue', 19.99)">Añadir al carrito</button>
+</div>
+
+<!-- Producto 6 -->
+<div class="producto">
+  <img src="img/producto6.jpg" alt="Producto 6">
+  <h3>Te Detox</h3>
+  <p>🔴 DESINTOXICA TU CUERPO<br>🔴 EVITA LA RETENCIÓN DE LÍQUIDOS</p>
+  <span>$19.99</span>
+  <button onclick="añadirAlCarrito('Te Detox', 19.99)">Añadir al carrito</button>
+</div>
+
+<!-- Producto 7 -->
+<div class="producto">
+  <img src="img/producto7.jpg" alt="Producto 7">
+  <h3>Pastillas Te Detox</h3>
+  <p>🔴 DESINTOXICA TU CUERPO<br>🔴 EVITA LA RETENCIÓN DE LÍQUIDOS</p>
+  <span>$19.99</span>
+  <button onclick="añadirAlCarrito('Pastillas Te Detox', 19.99)">Añadir al carrito</button>
+</div>
+
+<!-- Producto 8 -->
+<div class="producto">
+  <img src="img/producto8.jpg" alt="Producto 8">
+  <h3>Clorofila</h3>
+  <p>🔴 OXIGENA EL CUERPO<br>🔴 FORTALECE SISTEMA INMUNE</p>
+  <span>$19.99</span>
+  <button onclick="añadirAlCarrito('Clorofila', 19.99)">Añadir al carrito</button>
+</div>
+
+<!-- Producto 9 -->
+<div class="producto">
+  <img src="img/producto9.jpg" alt="Producto 9">
+  <h3>Gotitas Power Blue</h3>
+  <p>🔴 AUMENTA EL DESEO SEXUAL<br>🔴 AUMENTA LA POTENCIA</p>
+  <span>$19.99</span>
+  <button onclick="añadirAlCarrito('Gotitas Power Blue', 19.99)">Añadir al carrito</button>
+</div>
+
+<!-- Producto 10 -->
+<div class="producto">
+  <img src="img/producto10.jpg" alt="Producto 10">
+  <h3>Plan 30 Días</h3>
+  <p>🔴 BIENESTAR INTEGRAL<br>🔴 DESINTOXICACIÓN Y CONTROL DE PESO</p>
+  <span>$19.99</span>
+  <button onclick="añadirAlCarrito('Plan 30 Días', 19.99)">Añadir al carrito</button>
+</div>
+
+<!-- Producto 11 -->
+<div class="producto">
+  <img src="img/producto11.jpg" alt="Producto 11">
+  <h3>Gastrizan</h3>
+  <p>🔴 SALUD DIGESTIVA<br>🔴 COMBATE LA ACIDEZ</p>
+  <span>$19.99</span>
+  <button onclick="añadirAlCarrito('Gastrizan', 19.99)">Añadir al carrito</button>
+</div>
+
+<!-- Producto 12 -->
+<div class="producto">
+  <img src="img/producto12.jpg" alt="Producto 12">
+  <h3>Cúrcuma</h3>
+  <p>🔴 ANTIINFLAMATORIO NATURAL<br>🔴 MEJORA LA DIGESTIÓN</p>
+  <span>$19.99</span>
+  <button onclick="añadirAlCarrito('Cúrcuma', 19.99)">Añadir al carrito</button>
+</div>
+
+<!-- Producto 13 -->
+<div class="producto">
+  <img src="img/producto13.jpg" alt="Producto 13">
+  <h3>Té Verde</h3>
+  <p>🔴 RICO EN ANTIOXIDANTES<br>🔴 MEJORA METABOLISMO</p>
+  <span>$19.99</span>
+  <button onclick="añadirAlCarrito('Té Verde', 19.99)">Añadir al carrito</button>
+</div>
+
+<!-- Producto 14 -->
+<div class="producto">
+  <img src="img/producto14.jpg" alt="Producto 14">
+  <h3>L-Carnitina</h3>
+  <p>🔴 QUEMA GRASA<br>🔴 MEJORA RENDIMIENTO FÍSICO</p>
+  <span>$19.99</span>
+  <button onclick="añadirAlCarrito('L-Carnitina', 19.99)">Añadir al carrito</button>
+</div>
+
+<!-- Producto 15 -->
+<div class="producto">
+  <img src="img/producto15.jpg" alt="Producto 15">
+  <h3>Aguaje + Hinojo</h3>
+  <p>🔴 REGULA SISTEMA HORMONAL<br>🔴 MEJORA LA FIGURA</p>
+  <span>$19.99</span>
+  <button onclick="añadirAlCarrito('Aguaje + Hinojo', 19.99)">Añadir al carrito</button>
+</div>
+
+<!-- Producto 16 -->
+<div class="producto">
+  <img src="img/producto16.jpg" alt="Producto 16">
+  <h3>Bio Prost</h3>
+  <p>🔴 SALUD DE LA PRÓSTATA<br>🔴 MEJORA FLUJO URINARIO</p>
+  <span>$19.99</span>
+  <button onclick="añadirAlCarrito('Bio Prost', 19.99)">Añadir al carrito</button>
+</div>
+
+<!-- Producto 17 -->
+<div class="producto">
+  <img src="img/producto17.jpg" alt="Producto 17">
+  <h3>Uña de Gato</h3>
+  <p>🔴 REFUERZA SISTEMA INMUNE<br>🔴 ANTIINFLAMATORIO NATURAL</p>
+  <span>$19.99</span>
+  <button onclick="añadirAlCarrito('Uña de Gato', 19.99)">Añadir al carrito</button>
+</div>
+
+<!-- Producto 18 -->
+<div class="producto">
+  <img src="img/producto18.jpg" alt="Producto 18">
+  <h3>Mero Macho</h3>
+  <p>🔴 VIGORIZANTE MASCULINO<br>🔴 AUMENTA ENERGÍA</p>
+  <span>$19.99</span>
+  <button onclick="añadirAlCarrito('Mero Macho', 19.99)">Añadir al carrito</button>
+</div>
+
+<!-- Producto 20 -->
+<div class="producto">
+  <img src="img/producto20.jpg" alt="Producto 20">
+  <h3>Biotina</h3>
+  <p>🔴 MEJORA PIEL Y CABELLO<br>🔴 FORTALECE UÑAS</p>
+  <span>$19.99</span>
+  <button onclick="añadirAlCarrito('Biotina', 19.99)">Añadir al carrito</button>
+</div>
+
+<!-- Producto 21 -->
+<div class="producto">
+  <img src="img/producto21.jpg" alt="Producto 21">
+  <h3>Hercampuri</h3>
+  <p>🔴 DEPURATIVO NATURAL<br>🔴 REDUCE COLESTEROL</p>
+  <span>$19.99</span>
+  <button onclick="añadirAlCarrito('Hercampuri', 19.99)">Añadir al carrito</button>
+</div>
+
+<!-- Producto 22 -->
+<div class="producto">
+  <img src="img/producto22.jpg" alt="Producto 22">
+  <h3>Melatonina Medix</h3>
+  <p>🔴 REGULA CICLO DE SUEÑO<br>🔴 COMBATE INSOMNIO</p>
+  <span>$19.99</span>
+  <button onclick="añadirAlCarrito('Melatonina Medix', 19.99)">Añadir al carrito</button>
 </div>
 
 <!-- Producto 23 -->
 <div class="producto">
-  <img src="img/producto23.jpg" alt="Hierro + Calcio + B12 Medix">
+  <img src="img/producto23.jpg" alt="Producto 23">
   <h3>Hierro + Calcio + B12 Medix</h3>
-  <p>🔴 COMBATE LA ANEMIA<br>
-  🔴 FORTALECE HUESOS Y DIENTES<br>
-  🔴 AUMENTA LA ENERGÍA NATURAL<br>
-  🔴 COMPLEMENTO VITAL PARA TU DÍA</p>
+  <p>🔴 COMBATE ANEMIA<br>🔴 FORTALECE HUESOS</p>
   <span>$19.99</span>
-  <a href="https://wa.me/5930987512412?text=Hola%2C%20quiero%20más%20información%20sobre%20Hierro%20Calcio%20B12%20Medix" target="_blank">Comprar por WhatsApp</a>
+  <button onclick="añadirAlCarrito('Hierro + Calcio + B12 Medix', 19.99)">Añadir al carrito</button>
 </div>
 
 <!-- Producto 24 -->
 <div class="producto">
-  <img src="img/producto24.jpg" alt="Papa Madre Medix">
+  <img src="img/producto24.jpg" alt="Producto 24">
   <h3>Papa Madre Medix</h3>
-  <p>🔴 ALIVIA LA GASTRITIS Y ACIDEZ<br>
-  🔴 MEJORA LA DIGESTIÓN<br>
-  🔴 PROTECCIÓN GÁSTRICA NATURAL<br>
-  🔴 SUAVE CON TU ESTÓMAGO</p>
+  <p>🔴 ALIVIA GASTRITIS<br>🔴 MEJORA DIGESTIÓN</p>
   <span>$19.99</span>
-  <a href="https://wa.me/5930987512412?text=Hola%2C%20quiero%20más%20información%20sobre%20Papa%20Madre%20Medix" target="_blank">Comprar por WhatsApp</a>
+  <button onclick="añadirAlCarrito('Papa Madre Medix', 19.99)">Añadir al carrito</button>
 </div>
 
 <!-- Producto 25 -->
 <div class="producto">
-  <img src="img/producto25.jpg" alt="Enfermedades de la Mujer Medix">
+  <img src="img/producto25.jpg" alt="Producto 25">
   <h3>Enfermedades de la Mujer Medix</h3>
-  <p>🔴 CUIDADO FEMENINO ESPECIALIZADO<br>
-  🔴 ALIVIA INFECCIONES URINARIAS<br>
-  🔴 EQUILIBRA EL SISTEMA HORMONAL<br>
-  🔴 FORTALECE LA SALUD ÍNTIMA</p>
+  <p>🔴 CUIDADO FEMENINO<br>🔴 EQUILIBRA HORMONAS</p>
   <span>$19.99</span>
-  <a href="https://wa.me/5930987512412?text=Hola%2C%20quiero%20más%20información%20sobre%20Enfermedades%20de%20la%20Mujer%20Medix" target="_blank">Comprar por WhatsApp</a>
+  <button onclick="añadirAlCarrito('Enfermedades de la Mujer Medix', 19.99)">Añadir al carrito</button>
 </div>
+
 <!-- Producto 27 -->
 <div class="producto">
-  <img src="img/producto27.jpg" alt="Máshua Negra Medix">
+  <img src="img/producto27.jpg" alt="Producto 27">
   <h3>Máshua Negra Medix</h3>
-  <p>🔴 AUMENTA LA ENERGÍA Y LA RESISTENCIA<br>
-  🔴 MEJORA EL RENDIMIENTO FÍSICO<br>
-  🔴 APOYA LA SALUD MENTAL<br>
-  🔴 RAÍZ ANCESTRAL CON PODER REVITALIZANTE</p>
+  <p>🔴 AUMENTA ENERGÍA<br>🔴 MEJORA RENDIMIENTO</p>
   <span>$19.99</span>
-  <a href="https://wa.me/5930987512412?text=Hola%2C%20quiero%20más%20información%20sobre%20M%C3%A1shua%20Negra%20Medix" target="_blank">Comprar por WhatsApp</a>
+  <button onclick="añadirAlCarrito('Máshua Negra Medix', 19.99)">Añadir al carrito</button>
 </div>
-    <!-- Producto 28 -->
+
+<!-- Producto 28 -->
 <div class="producto">
-  <img src="img/producto28.jpg" alt="Valeriana">
+  <img src="img/producto28.jpg" alt="Producto 28">
   <h3>Valeriana</h3>
-  <p>🔴 ALIVIA EL INSOMNIO<br>
-  🔴 REDUCE LA ANSIEDAD<br>
-  🔴 RELAJANTE 100% NATURAL<br>
-  🔴 FAVORECE EL DESCANSO NOCTURNO</p>
+  <p>🔴 ALIVIA INSOMNIO<br>🔴 REDUCE ANSIEDAD</p>
   <span>$19.99</span>
-  <a href="https://wa.me/5930987512412?text=Hola%2C%20quiero%20más%20información%20sobre%20Valeriana" target="_blank">Comprar por WhatsApp</a>
+  <button onclick="añadirAlCarrito('Valeriana', 19.99)">Añadir al carrito</button>
 </div>
 
 <!-- Producto 29 -->
 <div class="producto">
-  <img src="img/producto29.jpg" alt="Aguaje Power">
+  <img src="img/producto29.jpg" alt="Producto 29">
   <h3>Aguaje Power</h3>
-  <p>🔴 PROMUEVE LA SALUD HORMONAL<br>
-  🔴 MEJORA LA PIEL Y EL CABELLO<br>
-  🔴 FUENTE NATURAL DE VITAMINAS A, C Y E<br>
-  🔴 IDEAL PARA MUJERES</p>
+  <p>🔴 SALUD HORMONAL<br>🔴 MEJORA PIEL Y CABELLO</p>
   <span>$19.99</span>
-  <a href="https://wa.me/5930987512412?text=Hola%2C%20quiero%20más%20información%20sobre%20Aguaje%20Power" target="_blank">Comprar por WhatsApp</a>
+  <button onclick="añadirAlCarrito('Aguaje Power', 19.99)">Añadir al carrito</button>
 </div>
+
     </div>
   </section>
-  <!-- Sección Sobre Nosotros -->
+
   <section id="nosotros" class="seccion nosotros">
     <h2>Sobre Gaia Vitalis</h2>
-    <p>Somos una tienda comprometida con el bienestar, la salud natural y el respeto por la Tierra. Todos nuestros productos están seleccionados con amor y conciencia ecológica.</p>
-    <img src="img/sobrenosotros.jpg" alt="Imagen sobre nosotros" />
+    <p>Somos una tienda comprometida con el bienestar, la salud natural y el respeto por la Tierra.</p>
   </section>
 
-  <!-- Sección Contacto -->
   <section id="contacto" class="seccion contacto">
     <h2>Contáctanos</h2>
     <p>¿Tienes preguntas o quieres hacer un pedido especial? Escríbenos:</p>
     <a class="boton-contacto" href="https://wa.me/NUMERO" target="_blank">Contactar por WhatsApp</a>
   </section>
 
-  <!-- Pie de página -->
   <footer>
     <p>&copy; 2025 Gaia Vitalis. Todos los derechos reservados.</p>
   </footer>
+<!-- Carrito flotante con contador -->
+<div id="carrito-bubble" onclick="toggleCarrito()" 
+     style="position: fixed; bottom: 30px; right: 30px; width: 60px; height: 60px; 
+            background-color: var(--verde-principal); color: white; border-radius: 50%; 
+            text-align: center; line-height: 60px; font-size: 1.5em; cursor: pointer; 
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3); z-index: 1000; user-select: none;">
+  🛒
+  <span id="contador-carrito" 
+        style="position: absolute; top: 6px; right: 6px; background: red; color: white; 
+               font-size: 0.65em; padding: 2px 6px; border-radius: 50%; font-weight: bold; 
+               display: none; min-width: 18px; height: 18px; line-height: 14px; text-align: center; 
+               box-shadow: 0 0 3px rgba(0,0,0,0.3); user-select: none;">
+    0
+  </span>
+</div>
+
+<!-- Contenedor del carrito (inicialmente oculto) -->
+<div id="carrito" style="position: fixed; bottom: 100px; right: 30px; width: 320px; max-height: 420px; 
+                        background: white; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.2); 
+                        padding: 15px; overflow-y: auto; display: none; z-index: 1001;">
+  <h3 style="color: var(--verde-principal); margin-bottom: 10px;">Carrito de Compras</h3>
+  <div id="carrito-items"></div>
+  <div id="carrito-descuento" style="margin-top: 15px; font-weight: bold; color: var(--dorado);"></div>
+  <div id="carrito-total" style="margin-top: 10px; font-weight: bold; font-size: 1.1em;"></div>
+  <button onclick="enviarWhatsapp()" 
+          style="margin-top: 15px; width: 100%; background-color: var(--verde-principal); 
+                 color: white; border: none; padding: 12px; border-radius: 8px; font-weight: bold; cursor: pointer;">
+    Contactar por WhatsApp
+  </button>
+</div>
+
+<script>
+  const carritoBubble = document.getElementById('carrito-bubble');
+  const carrito = document.getElementById('carrito');
+  const carritoItems = document.getElementById('carrito-items');
+  const contadorCarrito = document.getElementById('contador-carrito');
+  const descuentoDisplay = document.getElementById('carrito-descuento');
+  const totalDisplay = document.getElementById('carrito-total');
+
+  let carritoData = {};
+
+  function toggleCarrito() {
+    if(carrito.style.display === 'none' || carrito.style.display === '') {
+      carrito.style.display = 'block';
+    } else {
+      carrito.style.display = 'none';
+    }
+  }
+
+  function actualizarContador() {
+    const cantidad = Object.values(carritoData).reduce((sum, prod) => sum + prod.cantidad, 0);
+    if(cantidad > 0) {
+      contadorCarrito.style.display = 'inline-block';
+      contadorCarrito.textContent = cantidad;
+    } else {
+      contadorCarrito.style.display = 'none';
+    }
+  }
+
+ function añadirAlCarrito(id, precio) {
+  if (carritoData[id]) {
+    carritoData[id].cantidad++;
+  } else {
+    carritoData[id] = { nombre: id, precio, cantidad: 1 };
+  }
+  actualizarCarrito();
+}
+  function eliminarDelCarrito(id) {
+    if(carritoData[id]) {
+      carritoData[id].cantidad--;
+      if(carritoData[id].cantidad <= 0) {
+        delete carritoData[id];
+      }
+    }
+    actualizarCarrito();
+  }
+
+  function actualizarCarrito() {
+    carritoItems.innerHTML = '';
+    const productos = Object.entries(carritoData);
+
+    if(productos.length === 0) {
+      carritoItems.innerHTML = '<p>Tu carrito está vacío.</p>';
+      descuentoDisplay.textContent = '';
+      totalDisplay.textContent = '';
+      actualizarContador();
+      return;
+    }
+
+    let subtotal = 0;
+    productos.forEach(([id, prod]) => {
+      const productoDiv = document.createElement('div');
+      productoDiv.style.display = 'flex';
+      productoDiv.style.justifyContent = 'space-between';
+      productoDiv.style.alignItems = 'center';
+      productoDiv.style.marginBottom = '10px';
+
+      productoDiv.innerHTML = `
+        <span>${prod.nombre} x${prod.cantidad}</span>
+        <div>
+          <span>$${(prod.precio * prod.cantidad).toFixed(2)}</span>
+          <button onclick="eliminarDelCarrito('${id}')" 
+                  style="margin-left: 8px; background: #e74c3c; border: none; color: white; 
+                         border-radius: 4px; cursor: pointer; padding: 2px 6px; font-weight: bold;">
+            ×
+          </button>
+        </div>
+      `;
+      carritoItems.appendChild(productoDiv);
+      subtotal += prod.precio * prod.cantidad;
+    });
+
+    // Calcular descuento
+    const totalProductos = productos.reduce((sum, [, p]) => sum + p.cantidad, 0);
+    let descuento = 0;
+    if (totalProductos === 2) descuento = 0.20;
+    else if (totalProductos === 3) descuento = 0.30;
+    else if (totalProductos >= 4) descuento = 0.40;
+
+    const totalConDescuento = subtotal * (1 - descuento);
+
+    descuentoDisplay.textContent = descuento > 0 
+      ? `Descuento aplicado: ${Math.round(descuento * 100)}%` 
+      : '';
+
+    totalDisplay.textContent = `Total: $${totalConDescuento.toFixed(2)}`;
+
+    actualizarContador();
+  }
+
+  function enviarWhatsapp() {
+    const productos = Object.values(carritoData);
+    if(productos.length === 0) {
+      alert('Tu carrito está vacío.');
+      return;
+    }
+
+    let mensaje = 'Hola, quiero hacer un pedido con los siguientes productos:%0A';
+    productos.forEach(prod => {
+      mensaje += `- ${prod.nombre} x${prod.cantidad}%0A`;
+    });
+
+    const urlWhatsapp = `https://wa.me/5930987512412?text=${mensaje}`;
+    window.open(urlWhatsapp, '_blank');
+  }
+</script>
+
 </body>
 </html>
